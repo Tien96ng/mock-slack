@@ -5,11 +5,15 @@ import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import Box from '@material-ui/core/Box';
+import TelegramIcon from '@material-ui/icons/Telegram';
 
 export default function Nav() {
   return (
     <AppBar color="outlined" position="static">
       <Toolbar>
+        <IconButton edge="start"  color="inherit" aria-label="menu">
+          <TelegramIcon />
+        </IconButton>
         <Box display='flex' flexGrow={1}>
           <Typography variant="h6" > Mock Slack </Typography>
         </Box>
