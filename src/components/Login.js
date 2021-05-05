@@ -1,15 +1,39 @@
 import React from "react";
-import TextField from "@material-ui/core/TextField";
-import Button from '@material-ui/core/Button';
-import VpnKeyIcon from '@material-ui/icons/VpnKey';
+import { Button, FormControl, Input, InputLabel, FormHelperText } from "@material-ui/core";
+import TelegramIcon from '@material-ui/icons/Telegram';
 
-export default function SignUp() {
-  return (
-    <form autoComplete="off">
-      <h1> Welcome back, Please login! </h1>
-      <TextField id="outlined-basic" label="Outlined" variant="Email" />
-      <TextField id="outlined-basic" label="Outlined" variant="Password" />
-      <Button type="submit" variant="contained" color="default" startIcon={ <VpnKeyIcon /> } />
-    </form>
+function Login() {
+  return ( 
+    <>
+      <form> 
+        <h1> Welcome back, Please login! </h1>
+        <FormControl margin="dense" fullWidth="true">
+          <InputLabel htmlFor="email">Email address</InputLabel>
+          <Input id="email" aria-describedby="my-helper-text" />
+          <FormHelperText id="helper-email">We'll never share your email.</FormHelperText>
+        </FormControl>
+        <br />
+        <FormControl margin="dense" fullWidth="true">
+          <InputLabel htmlFor="password">Password</InputLabel>
+          <Input id="password" aria-describedby="my-helper-text" />
+          <FormHelperText id="password-help">Please don't share your password.</FormHelperText>
+        </FormControl>
+        <br />
+        <FormControl margin="dense" >
+          <Button
+            type="submit"
+            variant="contained"
+            color="primary"
+          >
+            Login
+            <TelegramIcon />
+          </Button>
+        </FormControl>
+      </form>
+    </>
+
   );
 }
+export default Login;
+
+
