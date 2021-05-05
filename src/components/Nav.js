@@ -1,27 +1,26 @@
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
-import Box from '@material-ui/core/Box';
-import TelegramIcon from '@material-ui/icons/Telegram';
+import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
+import { Toolbar, Typography, Button, IconButton, Box, AppBar } from "@material-ui/core";
+import HomeIcon from '@material-ui/icons/Home';
+
 
 export default function Nav() {
   return (
     <AppBar color="outlined" position="static">
       <Toolbar>
         <IconButton edge="start"  color="inherit" aria-label="menu">
-          <TelegramIcon />
+          <NavLink to="/">
+            <HomeIcon />
+          </NavLink>
         </IconButton>
         <Box display='flex' flexGrow={1}>
           <Typography variant="h6" > Mock Slack </Typography>
         </Box>
-        <Button color="inherit" className="move-left">Login</Button>
-        <Button color="inherit" className="move-left">Sign up</Button>
-        {/* <IconButton edge="start"  color="inherit" aria-label="menu">
-          <MenuIcon />
-        </IconButton> */}
+        <Button color="inherit" className="move-left">
+          <NavLink to="/login">Login</NavLink>
+        </Button>
+        <Button color="inherit" className="move-left">
+          <NavLink to="/signup">Sign Up</NavLink>
+        </Button>
       </Toolbar>
     </AppBar>
   );

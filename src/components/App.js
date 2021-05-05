@@ -11,12 +11,13 @@ import '../css/App.css';
 function App() {
   return (
     <Container maxWidth="lg">
-      <Nav />
-        <Router>
-          <Route path="/" component={Home} />
-          <Route path="/login" component={Login} />
-          <Route path="/signup" component={SignUp} />
-        </Router>
+
+      <Router>
+        <Nav />
+        <Route exact path="/" component={Home} />
+        <Route path="/login" component={Login} />
+        <Route path="/signup" component={SignUp} />
+      </Router>
     </Container>
   );
 }
