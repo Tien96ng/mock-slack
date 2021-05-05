@@ -8,10 +8,10 @@ import Box from '@material-ui/core/Box';
 
 export default function Nav() {
   return (
-    <AppBar position="static">
+    <AppBar color="outlined" position="static">
       <Toolbar>
         <Box display='flex' flexGrow={1}>
-          <Typography variant="h6" > News </Typography>
+          <Typography variant="h6" > Mock Slack </Typography>
         </Box>
         <Button color="inherit" className="move-left">Login</Button>
         <Button color="inherit" className="move-left">Sign up</Button>
