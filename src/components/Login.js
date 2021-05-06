@@ -2,7 +2,7 @@ import React from "react";
 import { Redirect } from "react-router-dom";
 import { Button } from "@material-ui/core";
 
-function Login(props) {
+function Login({signIn}) {
   return ( 
     <>
       <h1> Login or Sign Up with Google! </h1>
@@ -12,7 +12,7 @@ function Login(props) {
           backgroundColor: "green",
           color: "white"
         }}
-        onClick={props.signIn}
+        onClick={signIn}
       >
         Google
       </Button>

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import firebase, { db, auth } from "../services/firebase";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 import Nav from "./Nav";
 import Home from "./Home";
 import Login from "./Login";
@@ -16,24 +16,39 @@ function App() {
     auth.signInWithPopup(provider)
       .then((result) => {
         const user = result.user;
+        // console.log(user);
+      }).catch((error) => {
+        console.log(error);
+      });
+  }
+
+  const signOutUser = () => {
+    auth.signOut();
+  }
+
+  useEffect(() => {
+    firebase.auth().onAuthStateChanged(function(user) {
+      if (user) {
         setUser({
           photoURL: user.photoURL,
           displayName: user.displayName,
           email: user.email,
           creationDate: user.metadata.creationTime
         });
-        // console.log(user);
-      }).catch((error) => {
-        console.log(error);
-      });
-  }
+      } else {
+        setUser(null);
+      }
+    });
+  }, [])
+
   return (
     <Container maxWidth="lg">
+      {console.log(user)}
       <Router>
-        <Nav user={user}/>
+        <Nav user={user} signOut={signOutUser} />
         <Route exact path="/" component={Home} />
         <Route path="/login" component={() => <Login signIn={signInUser} />} />
-        <Route path="/account-details" component={() => <AccountDetails user={user}/> } />
+        <Route path="/account-details" component={() => <AccountDetails user={user} /> } />
       </Router>
     </Container>
   );

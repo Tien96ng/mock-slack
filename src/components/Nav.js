@@ -4,7 +4,7 @@ import HomeIcon from '@material-ui/icons/Home';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 
 
-export default function Nav({user}) {
+export default function Nav({user, signOut}) {
   const renderNavLink = (route, text) => (
     <NavLink 
       to={route}
@@ -18,7 +18,19 @@ export default function Nav({user}) {
     if(user === null) {
       return <>{renderNavLink("/login", "Login / Sign Up")}</>
     } else {
-      return <>{renderNavLink("/account-details", <AccountCircleIcon /> )}</>
+      return (
+        <>
+          {renderNavLink("/account-details", <AccountCircleIcon /> )}
+          <Button
+            color="secondary"
+            type="click"
+            onClick={signOut}
+          >
+            {/* {renderNavLink("/", "Sign Out")} */}
+            Sign Out
+          </Button>
+        </>
+      )
     }
   }
 
@@ -29,7 +41,7 @@ export default function Nav({user}) {
           {renderNavLink("/", <HomeIcon />)}
         </IconButton>
         <Box display='flex' flexGrow={1}>
-          <Typography variant="h6" > Mock Slack </Typography>
+          <Typography variant="h6" > {user === null ? "Mock Slack" : `${user.displayName}'s Slack`} </Typography>
         </Box>
         <Button color="inherit" className="move-left">
           {renderUserNav()}
