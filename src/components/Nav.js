@@ -1,30 +1,38 @@
 import { NavLink } from "react-router-dom";
 import { Toolbar, Typography, Button, IconButton, Box, AppBar } from "@material-ui/core";
 import HomeIcon from '@material-ui/icons/Home';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 
 
-export default function Nav() {
+export default function Nav({user}) {
+  const renderNavLink = (route, text) => (
+    <NavLink 
+      to={route}
+      style={{ textDecoration: 'none' }}
+    >
+      {text}
+    </NavLink>
+  );
+
+  const renderUserNav = () => {
+    if(user === null) {
+      return <>{renderNavLink("/login", "Login / Sign Up")}</>
+    } else {
+      return <>{renderNavLink("/account-details", <AccountCircleIcon /> )}</>
+    }
+  }
+
   return (
     <AppBar color="default" position="static">
       <Toolbar>
         <IconButton edge="start"  color="inherit" aria-label="menu">
-          <NavLink 
-            to="/" 
-            style={{ textDecoration: 'none' }}
-          >
-            <HomeIcon />
-          </NavLink>
+          {renderNavLink("/", <HomeIcon />)}
         </IconButton>
         <Box display='flex' flexGrow={1}>
           <Typography variant="h6" > Mock Slack </Typography>
         </Box>
         <Button color="inherit" className="move-left">
-          <NavLink 
-            to="/login" 
-            style={{ textDecoration: 'none' }}
-          >
-            Login/Sign Up
-          </NavLink>
+          {renderUserNav()}
         </Button>
       </Toolbar>
     </AppBar>

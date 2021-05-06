@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import Nav from "./Nav";
 import Home from "./Home";
 import Login from "./Login";
-import SignUp from "./Signup"
+import AccountDetails from "./AccountDetails";
 import Container from "@material-ui/core/Container"
 import '../css/App.css';
 
@@ -16,8 +16,13 @@ function App() {
     auth.signInWithPopup(provider)
       .then((result) => {
         const user = result.user;
-        setUser(user);
-        console.log(user);
+        setUser({
+          photoURL: user.photoURL,
+          displayName: user.displayName,
+          email: user.email,
+          creationDate: user.metadata.creationTime
+        });
+        // console.log(user);
       }).catch((error) => {
         console.log(error);
       });
@@ -25,10 +30,10 @@ function App() {
   return (
     <Container maxWidth="lg">
       <Router>
-        <Nav />
+        <Nav user={user}/>
         <Route exact path="/" component={Home} />
         <Route path="/login" component={() => <Login signIn={signInUser} />} />
-        {/* <Route path="/signup" component={SignUp} /> */}
+        <Route path="/account-details" component={() => <AccountDetails user={user}/> } />
       </Router>
     </Container>
   );
