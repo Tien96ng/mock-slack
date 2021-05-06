@@ -1,5 +1,5 @@
 # <div align="center"> **Mock Slack** 📤  </div>
-### <div align="center"> A front end app for practicing React Router and Firebase Authentication </div>
+### <div align="center"> A front end app for practicing React Router and Firebase Authentication with styling with Material UI</div>
 
 
 ### _Contributor(s) and Contact Info_ 
