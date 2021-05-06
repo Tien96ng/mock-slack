@@ -8,7 +8,10 @@ export default function Nav() {
     <AppBar color="outlined" position="static">
       <Toolbar>
         <IconButton edge="start"  color="inherit" aria-label="menu">
-          <NavLink to="/">
+          <NavLink 
+            to="/" 
+            style={{ textDecoration: 'none' }}
+          >
             <HomeIcon />
           </NavLink>
         </IconButton>
@@ -16,10 +19,20 @@ export default function Nav() {
           <Typography variant="h6" > Mock Slack </Typography>
         </Box>
         <Button color="inherit" className="move-left">
-          <NavLink to="/login">Login</NavLink>
+          <NavLink 
+            to="/login" 
+            style={{ textDecoration: 'none' }}
+          >
+            Login
+          </NavLink>
         </Button>
         <Button color="inherit" className="move-left">
-          <NavLink to="/signup">Sign Up</NavLink>
+          <NavLink 
+            to="/signup" 
+            style={{ textDecoration: 'none' }}
+          >
+            Sign Up
+          </NavLink>
         </Button>
       </Toolbar>
     </AppBar>
