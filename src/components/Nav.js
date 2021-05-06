@@ -5,7 +5,7 @@ import HomeIcon from '@material-ui/icons/Home';
 
 export default function Nav() {
   return (
-    <AppBar color="outlined" position="static">
+    <AppBar color="default" position="static">
       <Toolbar>
         <IconButton edge="start"  color="inherit" aria-label="menu">
           <NavLink 

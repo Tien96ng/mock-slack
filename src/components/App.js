@@ -11,6 +11,7 @@ import '../css/App.css';
 function App() {
   return (
     <Container maxWidth="lg">
+      {console.log("hello World")}
       <Router>
         <Nav />
         <Route exact path="/" component={Home} />

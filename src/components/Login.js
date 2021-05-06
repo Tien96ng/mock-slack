@@ -7,13 +7,13 @@ function Login() {
     <>
       <form> 
         <h1> Welcome back, Please login! </h1>
-        <FormControl margin="dense" fullWidth="true">
+        <FormControl margin="dense" fullWidth={true}>
           <InputLabel htmlFor="email">Email address</InputLabel>
           <Input id="email" aria-describedby="my-helper-text" />
           <FormHelperText id="helper-email">We'll never share your email.</FormHelperText>
         </FormControl>
         <br />
-        <FormControl margin="dense" fullWidth="true">
+        <FormControl margin="dense" fullWidth={true}>
           <InputLabel htmlFor="password">Password</InputLabel>
           <Input id="password" aria-describedby="my-helper-text" />
           <FormHelperText id="password-help">Please don't share your password.</FormHelperText>
