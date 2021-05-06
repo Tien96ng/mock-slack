@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import firebase, { db, auth } from "../services/firebase";
-import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Nav from "./Nav";
 import Home from "./Home";
 import Login from "./Login";
@@ -45,10 +45,11 @@ function App() {
     <Container maxWidth="lg">
       {console.log(user)}
       <Router>
-        <Nav user={user} signOut={signOutUser} />
-        <Route exact path="/" component={Home} />
-        <Route path="/login" component={() => <Login signIn={signInUser} />} />
-        <Route path="/account-details" component={() => <AccountDetails user={user} /> } />
+          <Nav user={user} signOut={signOutUser} />
+          <Route exact path="/" component={Home} />
+          {/* <Route path="*" component={() => "404 NOT FOUND"} /> */}
+          <Route path="/login" component={() => <Login signIn={signInUser} />} />
+          <Route path="/account-details" component={() => <AccountDetails user={user} /> } />
       </Router>
     </Container>
   );
