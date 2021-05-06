@@ -2,7 +2,7 @@ import React from "react";
 import { Button, FormControl, Input, InputLabel, FormHelperText } from "@material-ui/core";
 import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
 
-export default function SignUp() {
+export default function SignUp(props) {
   return (
     <>
       <form> 
@@ -33,3 +33,9 @@ export default function SignUp() {
     </>
   );
 }
+
+/*
+
+
+
+*/

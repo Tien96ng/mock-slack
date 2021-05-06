@@ -1,35 +1,20 @@
 import React from "react";
-import { Button, FormControl, Input, InputLabel, FormHelperText } from "@material-ui/core";
-import TelegramIcon from '@material-ui/icons/Telegram';
+import { Button } from "@material-ui/core";
 
-function Login() {
+function Login(props) {
   return ( 
     <>
-      <form> 
-        <h1> Welcome back, Please login! </h1>
-        <FormControl margin="dense" fullWidth={true}>
-          <InputLabel htmlFor="email">Email address</InputLabel>
-          <Input id="email" aria-describedby="my-helper-text" />
-          <FormHelperText id="helper-email">We'll never share your email.</FormHelperText>
-        </FormControl>
-        <br />
-        <FormControl margin="dense" fullWidth={true}>
-          <InputLabel htmlFor="password">Password</InputLabel>
-          <Input id="password" aria-describedby="my-helper-text" />
-          <FormHelperText id="password-help">Please don't share your password.</FormHelperText>
-        </FormControl>
-        <br />
-        <FormControl margin="dense" >
-          <Button
-            type="submit"
-            variant="contained"
-            color="primary"
-          >
-            Login
-            <TelegramIcon />
-          </Button>
-        </FormControl>
-      </form>
+      <h1> Login or Sign Up with Google! </h1>
+      <Button
+        variant="contained"
+        style={{
+          backgroundColor: "green",
+          color: "white"
+        }}
+        onClick={props.signIn}
+      >
+        Google
+      </Button>
     </>
 
   );

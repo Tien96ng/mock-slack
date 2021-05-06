@@ -23,15 +23,7 @@ export default function Nav() {
             to="/login" 
             style={{ textDecoration: 'none' }}
           >
-            Login
-          </NavLink>
-        </Button>
-        <Button color="inherit" className="move-left">
-          <NavLink 
-            to="/signup" 
-            style={{ textDecoration: 'none' }}
-          >
-            Sign Up
+            Login/Sign Up
           </NavLink>
         </Button>
       </Toolbar>
